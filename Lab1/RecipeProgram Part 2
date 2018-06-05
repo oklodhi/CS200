@@ -3,8 +3,8 @@ using namespace std; // Use the standard library
 
 int main() {
 	float tspBakingSoda, tspBakingPowder, cupsButter, CupsSugar, amountEggs; 
-	tspBakingPowder = 1; 
-	tspBakingSoda = .5; 
+	tspBakingPowder = .5; 
+	tspBakingSoda = 1; 
 	cupsButter = 1; 
 	CupsSugar = 1.5; 
 	amountEggs = 1; 
