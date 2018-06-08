@@ -1,0 +1,37 @@
+1) Initialization; Looping Condition; Code After Each Cycle
+
+2) 	FOR LOOP:  
+		cout << "COUNTING UP! \n";
+		for (int n = 0; n <= 20; n++) {
+			cout << n << " "; 
+		}
+
+	WHILE LOOP: 
+		cout << "COUNTING UP! \n";
+		int n = 0;
+		while (n <= 20) {
+			cout << n << " ";
+			n++;
+		}
+
+Initialization: initialized n in side the () in the FOR loop vs initialized n before the WHILE loop began
+Looping Condition: the condition is almost similar on both; inside the (). Both loop until n <= 20.
+Code After Each Cycle: the n = n * 2 is called within the () of the FOR vs n = n * 2 is called in code block { } of the WHILE loop. 
+	
+3) 	FOR LOOP:
+		cout << "COUNTING UP! \n";
+		for (int n = 1; n <= 128; n = n * 2) {
+			cout << n  << " ";
+		}
+
+	WHILE LOOP: 
+		cout << "COUNTING UP! \n"; 
+		int n = 1; 
+		while (n <= 128) {
+			cout << n << " "; 
+			n = n * 2; 
+		}
+
+Initialization: initialized n in side the () in the FOR loop vs initialized n before the WHILE loop began
+Looping Condition: the condition is almost similar on both; inside the (). Both loop until n <= 120.
+Code After Each Cycle: the n = n * 2 is called within the () of the FOR vs n = n * 2 is called in code block { } of the WHILE loop. 
