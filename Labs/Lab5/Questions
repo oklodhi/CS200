@@ -1,0 +1,10 @@
+1) A function can be void or return a single value 
+
+2) unlimited 
+
+3) yes, as long as it is the same data type of the parameters that are being passed
+
+4) void
+
+5) so the code is more organized. And in larger projects/applications, 
+    so you can use the same function over and over again without making errors
