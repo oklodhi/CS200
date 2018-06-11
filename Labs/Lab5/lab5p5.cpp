@@ -9,15 +9,21 @@ void DisplayMenu()
 
 void PrintPrice(float price)
 {
-	cout << "$" << setprecision(2) << price << endl;
-	return;
+	if (price < 0) {
+		price = price * -1; 
+		cout << "\nResult: -$" << price << endl << endl;
+	}
+	else {
+		cout << "\nResult: $" << price << endl << endl;
+	}
 }
 
 int main()
 {
-	int choice, num1, num2;
+	int choice; 
+	float num1, num2;
 
-	cout << "MONEY MATH";
+	cout << "MONEY MATH" << endl;
 
 	while (true)
 	{
@@ -30,7 +36,7 @@ int main()
 		// 3.   If choice is 1, get two float values and add them.
 		//      Display the result with PrintPrice.
 
-		// 4.   If choice is 2, get two float values and adsubtract them.
+		// 4.   If choice is 2, get two float values and subtract them.
 		//      Display the result with PrintPrice.
 
 		// 5.   If choice is 3, use the break; command to stop the program.
@@ -40,9 +46,9 @@ int main()
 			cout << "Enter second amount: \t";
 			cin >> num2;
 
-			int result = num1 + num2;
+			float result = num1 + num2;
 
-			PrintPrice(result);
+			PrintPrice(result); 
 		}
 		else if (choice == 2) {
 			cout << "Enter first amount: \t";
@@ -50,15 +56,14 @@ int main()
 			cout << "Enter second amount: \t";
 			cin >> num2;
 
-			int result = num1 - num2;
+			float result = num1 - num2;
 
-			PrintPrice(result);
+			PrintPrice(result); 
 		}
 		else if (choice == 3) {
 			cout << "Goodbye.";
 			break;
 		}
-
 	}
 
 	return 0;
