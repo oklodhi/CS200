@@ -5,41 +5,48 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-using namespace std; 
+using namespace std;
 
+// Initialize variables
 string petName;
 int percentHunger = 0, percentHappiness = 100, percentHealth = 100;
-bool quit = false; 
+bool quit = false;
+int petChoice;
 
 // Prompt for pet type
 void getPetType() {
-	int petChoice;
+	
 
 	cout << endl << "   ^ ^   " << endl << "=( o.o )= \t 1. Cat" << endl << endl;
 	cout << endl << "   U U   " << endl << "  (o.o)   \t 2. Bunny" << endl << endl;
 	cout << endl << "   A A   " << endl << "  (. .)    \t 3. Fox\n" << "    U   " << endl << endl;
 
-	cout << "Choose your pet: "; 
-	cin >> petChoice; 
+	cout << "Choose your pet: ";
+	cin >> petChoice;
 
-	setPetChoice(petChoice); 
+	drawPetType(petChoice);
+	setPetChoice(petChoice);
+	 
 }
 
+// Set petChoice
 void setPetChoice(int petChoice) {
 	switch (petChoice) {
-	case 1: 
-		cout << "You chose CAT"; 
+	case 1:
+		cout << "You chose CAT\n\n";
 		break;
-	case 2: 
-		cout << "You chose BUNNY";
-		break; 
-	case 3: 
-		cout << "You chose FOX";
-		break; 
-	default: 
-		cout << "NOTHING"; 
+	case 2:
+		cout << "You chose BUNNY\n\n";
+		break;
+	case 3:
+		cout << "You chose FOX\n\n";
+		break;
+	default:
+		while (true) {
+			exit(1); 
+		}
+		
 	}
 }
 
@@ -47,13 +54,14 @@ void setPetChoice(int petChoice) {
 void getPetName() {
 
 	cout << "What do you want to name your pet? \t";
-	cin >> petName; 
+	cin >> petName;
 }
 
 // cout pet stats
 void showPetStats() {
-
-	cout << "Name: \t \t" << petName << endl; 
+	drawPetType(petChoice); 
+	
+	cout << "\nName: \t \t" << petName << endl;
 
 	cout << "Hunger: \t" << percentHunger << "%" << endl;
 	cout << "Happiness: \t" << percentHappiness << "%" << endl;
@@ -64,12 +72,12 @@ void showPetStats() {
 // Return hunger to mainMenu.cpp
 int getPercentHunger() {
 
-	return percentHunger; 
+	return percentHunger;
 }
 
 // Prompt user choice
 int promptUserChoice(int min, int max) {
-	int choice; 
+	int choice;
 
 	cout << "1. Feed \t 2. Play \t 3. Heal \t 4. Quit" << endl;
 
@@ -80,7 +88,7 @@ int promptUserChoice(int min, int max) {
 		cout << "Invalid choice, try again: \t";
 		cin >> choice;
 	}
-	return choice; 
+	return choice;
 }
 
 // Do some action based on choice
@@ -97,17 +105,17 @@ void doCommand(int choice) {
 		break;
 	case 4:
 		quit = true;
-		getQuitStatus(); 
+		getQuitStatus();
 		break;
 	}
 
 	makeStatChanges();
-	keepWithinBounds(); 
+	keepWithinBounds();
 }
 
 // Return quit to mainMenu.cpp
 bool getQuitStatus() {
-	return quit; 
+	return quit;
 }
 
 // Stat changes during each loop
@@ -119,7 +127,7 @@ void makeStatChanges() {
 
 // Keep health, happiness, and hunger within bounds 0% - 100%
 void keepWithinBounds() {
-	 
+
 	if (percentHealth < 0) {
 		percentHealth = 0;
 	}
@@ -142,4 +150,15 @@ void keepWithinBounds() {
 	}
 }
 
-
+// Displays pet type based on petChoice
+void drawPetType(int petChoice) {
+	if (petChoice == 1) {
+		cout << endl << "   ^ ^   " << endl << "=( o.o )= " << endl << endl;
+	}
+	else if (petChoice == 2) {
+		cout << endl << "   U U   " << endl << "  (o.o)   " << endl << endl;
+	}
+	else if (petChoice == 3) {
+		cout << endl << "   A A   " << endl << "  (. .)    " << endl << "    U   " << endl << endl;
+	}
+}
