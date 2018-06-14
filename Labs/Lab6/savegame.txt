@@ -1,0 +1,3 @@
+NAME    Bob
+LEVEL   5
+MONEY   100
