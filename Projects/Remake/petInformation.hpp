@@ -1,30 +1,29 @@
 #ifndef _PET_INFORMATION_HPP
 #define _PET_INFORMATION_HPP
 
-#include <string>
-
 // Function declarations
 
-using namespace std; 
+using namespace std;
 
 void getPetType();
 
-void setPetChoice(int petChoice); 
+void setPetChoice(int petChoice);
 
 void getPetName();
 
-void showPetStats(); 
+void showPetStats();
 
-int getPercentHunger(); 
+int getPercentHunger();
 
 int promptUserChoice(int min, int max);
 
-void doCommand(int choice); 
+void doCommand(int choice);
 
 bool getQuitStatus();
 
 void makeStatChanges();
 
-void keepWithinBounds(); 
+void keepWithinBounds();
 
+void drawPetType(int petChoice); 
 #endif 
