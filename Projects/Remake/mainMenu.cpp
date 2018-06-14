@@ -3,22 +3,21 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-using namespace std; 
+using namespace std;
 
-bool isQuitting; 
+bool isQuitting;
 
 // Display main menu
 int main() {
-	
+
 	// Initialize variables
-	cout << "VIRTUAL PET GAME \n \n"; 
+	cout << "VIRTUAL PET GAME \n \n";
 
 	// Get pet type and pet name
 	getPetType(); 
-	getPetName(); 
-	
+	getPetName();
+
 	// Loop game as long as quit == false
 	while (isQuitting != true) {
 		showPetStats();
@@ -28,19 +27,19 @@ int main() {
 			isQuitting = true;
 			cout << "\nYour pet has been taken away from you! \n" << "Game over" << endl;
 
-			int a;
-			cin >> a; 
+			cin.ignore();
+			cin.get(); 
 		}
 		else { // Else, continue
 
-			// Prompt user choice
+			   // Prompt user choice
 			int choice = promptUserChoice(1, 4);
 
 			// Do some action based on choice3
 			doCommand(choice);
 
 			// Check when to quit
-			isQuitting = getQuitStatus(); 
+			isQuitting = getQuitStatus();
 		}
 	}
 }
