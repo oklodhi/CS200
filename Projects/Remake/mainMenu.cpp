@@ -1,11 +1,14 @@
 #include "petInformation.hpp"
 #include "mainMenu.hpp"
 
+// Main 
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+// Initialize variables
 bool isQuitting;
 
 // Display main menu

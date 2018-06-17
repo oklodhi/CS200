@@ -26,4 +26,5 @@ void makeStatChanges();
 void keepWithinBounds();
 
 void drawPetType(int petChoice); 
+
 #endif 
