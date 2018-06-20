@@ -1,0 +1,11 @@
+1) We should keep a separate variable to store the array size because if we ever want to change the size of the array
+	to the likes of our program, we can just change 1 line of code istead of having to replace the value whereever
+	it is used. 
+
+2) We should keep a separate variable to store how many items have been added to the array because it would help keep track of how many more we can add. 
+	ie: not overshoot number of items the array can hold. For example if the array can hold 10 items total, and we have entered 6 items, it helps us 
+	know that we can add 4 more items to the array.  
+
+3) 	int someArray[5]; 	or
+	int someArray[] = {1, 2, 3, 4, 5}; 
+	

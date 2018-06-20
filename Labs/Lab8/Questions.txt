@@ -1,0 +1,15 @@
+1) &
+
+2) 1 byte
+
+3) 4 bytes
+
+4) 1st element of the array
+
+5) * 
+
+6) int* ptrInt; 
+
+7) &myvar; 
+
+8) ptrVar = &myvar; 
