@@ -6,11 +6,29 @@
 
 void PlaceNumberInCell( int grid[3][3], int row, int column, int number )
 {
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			grid[r][c] = number; 
+		}
+	}
 }
 
 bool CellIsTaken( int grid[3][3], int row, int column )
 {
-    return false; // temp
+	int* ptrNumber = nullptr;
+
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			ptrNumber = &grid[r][c]; 
+
+			if (*ptrNumber != 0) {
+				return true; 
+			}
+			else {
+				return false; 
+			}
+		}
+	}
 }
 
 void ResetGrid( int grid[3][3] )
@@ -19,7 +37,7 @@ void ResetGrid( int grid[3][3] )
 
 bool NumberAlreadyUsed( int grid[3][3], int number )
 {
-    return false; // temp
+    return false; // temp 
 }
 
 bool AllCellsTaken( int grid[3][3] )
