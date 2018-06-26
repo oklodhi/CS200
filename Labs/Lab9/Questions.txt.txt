@@ -1,0 +1,7 @@
+1) int* myInteger = new int; 
+
+2) int* arrayInt = new int[5]; 
+
+3) delete myInteger; 
+
+4) delete [] arrayInt; 
