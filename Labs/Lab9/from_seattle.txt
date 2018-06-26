@@ -1,0 +1,6 @@
+5
+Portland        174
+Olympia         60
+Eugene          283
+Vancouver       143
+Sacramento      752
