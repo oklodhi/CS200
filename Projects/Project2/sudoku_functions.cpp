@@ -33,6 +33,7 @@ bool CellIsTaken( int grid[3][3], int row, int column )
 
 void ResetGrid( int grid[3][3] )
 {
+
 }
 
 bool NumberAlreadyUsed( int grid[3][3], int number )

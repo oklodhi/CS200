@@ -1,9 +1,0 @@
-7
-Omaha           189
-St_Louis        248
-Wichita         200
-Oklahoma_City   353
-Branson         209
-Columbia        127
-Des_Moines      193
-    
