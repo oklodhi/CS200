@@ -280,6 +280,8 @@ int Tester::Test_ResetGrid()
         { 2, 2, 2 }, { 3, 3, 3 }, { 4, 4, 4 }
     };
 
+	ResetGrid(grid); 
+
     for ( int y = 0; y < 3; y++ )
     {
         for ( int x = 0; x < 3; x++ )
