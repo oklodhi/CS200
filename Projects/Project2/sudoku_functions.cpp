@@ -20,9 +20,43 @@ bool CellIsTaken( int grid[3][3], int row, int column )
 	for (int r = 0; r < 3; r++) {
 		for (int c = 0; c < 3; c++) {
 			ptrNumber = &grid[r][c]; 
-
+			//cout << "WHITE\n";
 			if (*ptrNumber != 0) {
+				//cout << "BLUE\n";
 				return true; 
+			}
+			else {
+				//cout << "RED\n";
+				return false;
+			}
+			//cout << "BLACK\n"; 
+		}
+	}
+}
+
+void ResetGrid( int grid[3][3] )
+{ 
+	int* ptrNumber = nullptr; 
+
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			ptrNumber = &grid[r][c]; 
+
+			*ptrNumber = 0; 
+		}
+	}
+}
+
+bool NumberAlreadyUsed( int grid[3][3], int number )
+{
+	int* ptrNumber = nullptr;
+
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			ptrNumber = &grid[r][c];
+
+			if (*ptrNumber >= 1 && *ptrNumber <= 9) {
+				return true;
 			}
 			else {
 				return false; 
@@ -31,19 +65,9 @@ bool CellIsTaken( int grid[3][3], int row, int column )
 	}
 }
 
-void ResetGrid( int grid[3][3] )
-{
-
-}
-
-bool NumberAlreadyUsed( int grid[3][3], int number )
-{
-    return false; // temp 
-}
-
 bool AllCellsTaken( int grid[3][3] )
 {
-    return false; // temp
+	return false; 
 }
 
 int GetUserInput( int min, int max ) // doesn't have test
