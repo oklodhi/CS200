@@ -1,0 +1,29 @@
+TASK 1
+
+1) 	direction: a
+	firstLetter: -52'1'
+	player: x=14 y=3
+	board: {tiles=0x0073f5c0 {0x0073f5c0 "##########..., 0x0073f5ca "##########..., 0x0073f5d4 "######   #..., ...} }
+
+
+2)	firstLetter: 97 'a' 
+
+3)	MOVE_UP: 119 'w'
+	MOVE_DOWN: 115 's'
+	MOVE_LEFT: 97 'a'
+	MOVE_RIGHT: 100 'd'
+
+4) 	x = 12, y = 4
+
+
+TASK 2
+1) 	system( "cls" );
+
+TASK 3
+1) 	Gameplay(int & score) line 98
+
+2) 	main() line 98 
+
+
+
+
