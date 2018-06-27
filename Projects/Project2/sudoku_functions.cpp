@@ -6,31 +6,20 @@
 
 void PlaceNumberInCell( int grid[3][3], int row, int column, int number )
 {
-	for (int r = 0; r < 3; r++) {
-		for (int c = 0; c < 3; c++) {
-			grid[r][c] = number; 
-		}
-	}
+	grid[row][column] = number; 
 }
 
 bool CellIsTaken( int grid[3][3], int row, int column )
 {
 	int* ptrNumber = nullptr;
 
-	for (int r = 0; r < 3; r++) {
-		for (int c = 0; c < 3; c++) {
-			ptrNumber = &grid[r][c]; 
-			//cout << "WHITE\n";
-			if (*ptrNumber != 0) {
-				//cout << "BLUE\n";
-				return true; 
-			}
-			else {
-				//cout << "RED\n";
-				return false;
-			}
-			//cout << "BLACK\n"; 
-		}
+	ptrNumber = &grid[row][column]; 
+
+	if (*ptrNumber != 0) {
+		return true; 
+	}
+	else {
+		return false; 
 	}
 }
 
@@ -55,39 +44,65 @@ bool NumberAlreadyUsed( int grid[3][3], int number )
 		for (int c = 0; c < 3; c++) {
 			ptrNumber = &grid[r][c];
 
-			if (*ptrNumber >= 1 && *ptrNumber <= 9) {
+			if (*ptrNumber == number) {
 				return true;
-			}
-			else {
-				return false; 
 			}
 		}
 	}
+	return false;
 }
 
 bool AllCellsTaken( int grid[3][3] )
 {
-	return false; 
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			if (CellIsTaken(grid, r, c) == false) {
+				return false; 
+			}
+		}
+	}
+	return true; 
 }
 
 int GetUserInput( int min, int max ) // doesn't have test
 {
-    return 0; // temp
+	int choice; 
+
+	cin >> choice; 
+
+	while (choice < min || choice > max) {
+		cout << "Invalid choice. Try again: ";
+		cin >> choice; 
+	}
+
+	return choice; 
 }
 
 int GetRow() // doesn't have test
 {
-    return 0; // temp
+	int row; 
+
+	cout << "Enter row (0 - 2): "; 
+	row = GetUserInput(0, 2); 
+	return row; 
 }
 
 int GetColumn() // doesn't have test
 {
-    return 0; // temp
+	int column; 
+
+	cout << "Enter column (0 - 2): "; 
+	column = GetUserInput(0, 2); 
+	return column; 
 }
 
 int GetNumber() // doesn't have test
 {
-    return 0; // temp
+	int number; 
+
+	cout << "Enter number (1 - 9): "; 
+	number = GetUserInput(1, 9); 
+	return number; 
 }
 
 /* PRE-WRITTEN FUNCTION **************************************/
