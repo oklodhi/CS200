@@ -1,0 +1,19 @@
+1) "bob"
+
+2) projectfile.exe triggers a breakpoint. "Debug Assertion Failed!"
+
+3) 5
+
+4) 5
+
+5) cheesepizza
+
+6) cheesepizza
+
+7) 0
+
+8) 0
+
+9) -1 
+
+10) 1
