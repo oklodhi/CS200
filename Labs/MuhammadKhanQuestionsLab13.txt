@@ -1,0 +1,13 @@
+1) a public member can be accessed from anywhere in the code. ie scope is global
+
+2) a private member can only be accessed within the same function where it was declared
+
+3) Yes
+
+3) Yes 
+
+5) we make variables private so we dont accidentally overwrite the variables or use them where we dont want to
+
+6) ptr = &array[index]
+
+7) scope resolution operator
