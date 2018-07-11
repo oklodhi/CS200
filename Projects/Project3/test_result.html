@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> cuTEST Test Results </title>
+        <style type='text/css'>
+            body { font-family: sans-serif; font-size: 12pt; }
+            .warning { padding: 20px; background: #ffed24; font-size: 20px; text-align: center; }
+            .result-success { background: #24ff24; font-size: 20px; text-align: center; }
+            .result-failure { background: #ff7095; font-size: 20px; text-align: center; }
+            table { background: #ccccff; width: 100%; border: solid 1px #0000aa; }
+            table tr.pass { background: #ccffcc; }
+            table tr.fail { background: #ffcccc; }
+            table tr             { font-size: 12pt; border: solid 1px #000066; }
+            table tr td          { padding: 10px; border: solid 1px #000033; }
+            table tr td ul li,             table tr td ol li    { margin: 10px 0; }
+            table tr td ol       { list-style-type: upper-latin; }
+            table tr .test-set   {  }
+            table tr .test       { font-size: 14pt; }
+            table tr .prereq     {  }
+            table tr .result     { text-align: center; font-size: 14pt; font-weight: bold; }
+            table tr .expected   { font-family: monospace; font-size: 14pt; }
+            table tr .actual     { font-family: monospace; font-size: 14pt; }
+            table tr .comments   {  }
+            table tr.summary { background: #000000; color: #ffffff; }
+            table tr.descriptions { font-size: 8pt; text-align: center; }
+            table .spacer { height: 100px; }
+        </style>
+    </head>
+    <body>
+    <div class='warning'>Warning: Make sure to check if all tests finish (there will be a message at the end of the file) - <br>
+    It is possible for your program to crash early, but still show that tests have passed because it hasn't gone through everything.</div>
+    <table>
+        <tr>
+            <th class='col_set'> Test set </th>
+            <th class='col_test'> Test </th>
+            <th class='col_prereq'> Prerequisite <br> functions </th>
+            <th class='col_result'> Pass/fail </th>
+            <th class='col_expected'> Expected <br> output </th>
+            <th class='col_actual'> Actual <br> output </th>
+            <th class='col_comments'> Comments </th>
+        </tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Setup       </td>
+<td class='test'>          Check if course count is set to 0 after Setup       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 0</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 0</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Setup       </td>
+<td class='test'>          Check if array size isn't 0 Setup       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 5</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Setup       </td>
+<td class='test'>          Check if m_array is pointing to memory address after Setup       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_array address = not nullptr</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_array address = 0xc85e28</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_Setup:</strong>
+3 out of 3 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsFull       </td>
+<td class='test'>          Check if IsFull() returns true when m_arraySize and m_courseCount match.       </td>
+<td class='prereq'>   <ul> <li>Add</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsFull() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsFull() = 1</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsFull       </td>
+<td class='test'>          Check if IsFull() returns false when m_arraySize and m_courseCount DON'T match.       </td>
+<td class='prereq'>   <ul> <li>Add</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsFull() = 0</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsFull() = 0</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsFull       </td>
+<td class='test'>          Check if IsFull() returns true when calling Add() to fill up the array.       </td>
+<td class='prereq'>   <ul> <li>Add</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsFull() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsFull() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Note: This test won't pass until you've implemented Add()</li> </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_IsFull:</strong>
+3 out of 3 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_FindAvailableIndex       </td>
+<td class='test'>          In empty array, check that available index is 0.       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>FindAvailableIndex() = 0</li> </ol> </td>
+<td class='actual'>   <ol> <li>FindAvailableIndex() = 0</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_FindAvailableIndex       </td>
+<td class='test'>          Fill array partially, check if FindAvailableIndex() returns appropriate index       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>FindAvailableIndex() = 4</li> </ol> </td>
+<td class='actual'>   <ol> <li>FindAvailableIndex() = 4</li> </ol> </td>
+<td class='comments'> <ul> <li>Gap is at position 4</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_FindAvailableIndex       </td>
+<td class='test'>          Fill array completely, check if FindAvailableIndex() returns -1 for no available spaces.       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>FindAvailableIndex() = -1</li> </ol> </td>
+<td class='actual'>   <ol> <li>FindAvailableIndex() = -1</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_FindAvailableIndex:</strong>
+3 out of 3 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_GetCourse       </td>
+<td class='test'>          Check if GetCourse() returns "" if the index is invalid.       </td>
+<td class='prereq'>   <ul> <li>Size()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>GetCourse() = </li> </ol> </td>
+<td class='actual'>   <ol> <li>GetCourse() = </li> </ol> </td>
+<td class='comments'> <ul> <li>Bad index is 5</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_GetCourse       </td>
+<td class='test'>          Check if GetCourse() returns the right item at index.       </td>
+<td class='prereq'>   <ul> <li>Size()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>GetCourse() = cs250</li> </ol> </td>
+<td class='actual'>   <ol> <li>GetCourse() = cs250</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_GetCourse:</strong>
+2 out of 2 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns false for an index < 0       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 0</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 0</li> </ol> </td>
+<td class='comments'> <ul> <li>Bad index is -1</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns false for an index = array size       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 0</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 0</li> </ol> </td>
+<td class='comments'> <ul> <li>Bad index is 5</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns true for 0 <= index < arraySize       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Index is 0</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns true for 0 <= index < arraySize       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Index is 1</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns true for 0 <= index < arraySize       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Index is 2</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns true for 0 <= index < arraySize       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Index is 3</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_IsValidIndex       </td>
+<td class='test'>          Check if IsValidIndex() returns true for 0 <= index < arraySize       </td>
+<td class='prereq'>   <ul> <li>No prerequisites</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>IsValidIndex() = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Index is 4</li> </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_IsValidIndex:</strong>
+7 out of 7 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_CourseCount       </td>
+<td class='test'>          Set the course count and check if CourseCount() returns the right number       </td>
+<td class='prereq'>   <ul> <li>No prereqs</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>CourseCount() = 10</li> </ol> </td>
+<td class='actual'>   <ol> <li>CourseCount() = 10</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_CourseCount:</strong>
+1 out of 1 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Size       </td>
+<td class='test'>          Set the array size and check if Size() returns the right number       </td>
+<td class='prereq'>   <ul> <li>PlaceNumberInCell</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>Size() = 10</li> </ol> </td>
+<td class='actual'>   <ol> <li>Size() = 10</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_Size:</strong>
+1 out of 1 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Resize       </td>
+<td class='test'>          Check if m_arraySize changes after Resize()       </td>
+<td class='prereq'>   <ul> <li></li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_arraySize = > old size</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_arraySize = 10</li> </ol> </td>
+<td class='comments'> <ul> <li>Old size is: 5</li><li>New size is: 10</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Resize       </td>
+<td class='test'>          Check if m_courseCount stays the same after Resize()       </td>
+<td class='prereq'>   <ul> <li></li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 2</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 2</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Resize       </td>
+<td class='test'>          Check if array's address is different after Resize()       </td>
+<td class='prereq'>   <ul> <li></li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_array address = 0xc85f28</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_array address = 0xc85f280xc86188</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_Resize:</strong>
+3 out of 3 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Add       </td>
+<td class='test'>          Check Add() to make sure items are added to array       </td>
+<td class='prereq'>   <ul> <li>FindAvailableIndex()</li><li>IsFull()</li><li>Resize()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>All items added = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>All items added = 1</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Add       </td>
+<td class='test'>          Check Add() to make sure m_courseCount is right       </td>
+<td class='prereq'>   <ul> <li>FindAvailableIndex()</li><li>IsFull()</li><li>Resize()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 5</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 5</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Add       </td>
+<td class='test'>          Check Add() to make sure we can add stuff past the Resize()       </td>
+<td class='prereq'>   <ul> <li>FindAvailableIndex()</li><li>IsFull()</li><li>Resize()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>All items added = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>All items added = 1</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Add       </td>
+<td class='test'>          Check Add() to make sure m_courseCount is correct after the Resize()       </td>
+<td class='prereq'>   <ul> <li>FindAvailableIndex()</li><li>IsFull()</li><li>Resize()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 7</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 7</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_Add:</strong>
+4 out of 4 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Check if remove doesn't modify the array if the index is bad.       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>no changes made = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>no changes made = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Remove at index -1</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Check if remove doesn't modify the array if the index is bad.       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>no changes made = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>no changes made = 1</li> </ol> </td>
+<td class='comments'> <ul> <li>Remove at index 5</li> </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Check that array is in correct state after Remove().       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>Correct state? = 1</li> </ol> </td>
+<td class='actual'>   <ol> <li>Correct state? = 1</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Check that m_courseCount isn't changed when Remove() is called with bad index.       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 5</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 5</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Check that m_courseCount is reduced when Remove() is called with good index.       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 4</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 4</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='pass'>
+<td class='test-set'>      Test_Remove       </td>
+<td class='test'>          Make sure m_courseCount doesn't change when trying to Remove() an empty item.       </td>
+<td class='prereq'>   <ul> <li>Add()</li><li>IsValidIndex()</li> </ul> </td>
+<td class='result'>        passed       </td>
+<td class='expected'> <ol> <li>m_courseCount = 4</li> </ol> </td>
+<td class='actual'>   <ol> <li>m_courseCount = 4</li> </ol> </td>
+<td class='comments'> <ul>  </ul> </td>
+</tr>
+<tr class='summary'>
+<td colspan='7' class='summary'>
+<strong>SUMMARY FOR Test_Remove:</strong>
+6 out of 6 tests passed
+</td>
+</tr>
+<tr class='spacer'></tr>
+    </table>
+    <div class='result-success'>10 testsets ran; 10 testsets passed</div>
+    </body>
+</html>
