@@ -1,0 +1,13 @@
+1) ::
+
+2) the constructor is the first thing that is called when a function activates
+
+3) the destructor is automatically called after the end of the function
+
+4) function overloading is when 2 functions have the same name but are differentiated
+	through having different types and different numbers of parameters
+
+5) the static keyword shares the same value among all its instances
+
+6) a friend function is defined outside the scope of a class, but the friend function has access to the private
+	and protectec functions and variables of that class
