@@ -14,7 +14,7 @@ class Book {
         string m_title;
         string m_author;
         ReadingStatus m_readingStatus;
-        PurchaseStatus m_puchaseStatus;
+        PurchaseStatus m_purchaseStatus;
 
 
     public:
@@ -24,6 +24,7 @@ class Book {
         int GetReadingStatus();
         string GetReadingStatusString();
         string GetTitle();
+        string GetAuthor();
         void SetBookInfo (const string& title, const string& author);
         void SetPurchaseStatus (PurchaseStatus ps);
         void SetReadingStatus (ReadingStatus rs);
