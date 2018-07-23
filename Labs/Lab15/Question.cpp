@@ -17,7 +17,7 @@ void TrueFalseQuestion::Display(){
 }
 
 void TrueFalseQuestion::SetCorrectAnswer(const string& correctAnswer){
-    m_questionText = correctAnswer;
+    m_correctAnswer = correctAnswer;
 }
 
 bool TrueFalseQuestion::CheckAnswer(const string& userAnswer){
@@ -36,7 +36,7 @@ void MultipleChoiceQuestion::Display(){
 }
 
 void MultipleChoiceQuestion::SetCorrectAnswer(int correctAnswer){
-    m_questionText = correctAnswer;
+    m_correctAnswer = correctAnswer;
 }
 
 bool MultipleChoiceQuestion::CheckAnswer(int userAnswer){
