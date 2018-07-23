@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "Book.hpp"
+#include "Library.hpp"
 
 void Phase1_Test1() {
     Book book1;
@@ -27,8 +28,19 @@ void Phase1_Test1() {
     book4.DisplayBook();
 }
 
+void Phase2_Test1() {
+    Library lib;
+    lib.AllocateMemory(10);
+    lib.GetArraySize();
+
+    Library lib2;
+    lib2.AllocateMemory(5);
+    lib2.ResizeArray();
+    lib2.GetArraySize();
+}
+
 int main() {
     Phase1_Test1();
-
+    Phase2_Test1();
     return 0;
 }
