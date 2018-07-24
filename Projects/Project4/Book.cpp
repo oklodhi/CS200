@@ -21,7 +21,7 @@ void Book::DisplayBook()
 {
     cout << "Title \t\t" << m_title << endl;
     cout << "Author: \t" << m_author << endl;
-    cout << "Status: \t" << GetPurchaseStatusString() << ", \t" << GetReadingStatusString() << endl;
+    cout << "Status: \t" << GetPurchaseStatusString() << ", \t" << GetReadingStatusString() << endl << endl;
 }
 
 string Book::GetTitle()

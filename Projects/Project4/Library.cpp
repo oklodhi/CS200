@@ -1,4 +1,5 @@
 #include "Library.hpp"
+#include "Book.hpp"
 
 Library::Library() {
     m_bookList = nullptr;
@@ -62,12 +63,12 @@ void Library::DisplayBooksWithIndex() {
 }
 
 void Library::Run() {
-	MainMenu(); 
+	MainMenu();
 }
 
 void Library::MainMenu() {
-	bool isQuit = false; 
-	int inputChoice; 
+	bool isQuit = false;
+	int inputChoice;
 
 	while (isQuit == false) {
 		cout << "------------------------- \n" << "| LIBRARY MAIN MENU | \n" << "------------------------- \n";
@@ -96,48 +97,47 @@ void Library::MainMenu() {
 			ViewAllBooks();
 		}
 		else if (inputChoice == 5) {
-			isQuit = true; 
+			isQuit = true;
 		}
 	}
 }
 
 void Library::NewBook() {
-	if (isArrayFull()) {
-		ResizeArray(); 
+	if (isArrayFull() == true) {
+		ResizeArray();
 	}
 
-	string title, author; 
-	int rs, ps; 
+	string title, author;
+	int rs, ps;
 
 	cout << "------------------------- \n" << "| ADD NEW BOOK | \n" << "------------------------- \n";
 
-	cout << "Enter book title: \t"; 
-	cin.ignore(); 
-	getline(cin, title); 
-	cout << "Enter book author: \t";
 	cin.ignore();
+	cout << "Enter book title: \t";
+	getline(cin, title);
+	cout << "Enter book author: \t";
 	getline(cin, author);
 	cout << "Enter reading status (0. Not Started; 1. Reading; 2. Finished): \t";
 	cin >> rs;
 	cout << "Enter reading status (0. Owned; 1. On wishlist): \t";
 	cin >> ps;
 
-	m_bookList->SetBookInfo(title, author); 
-	m_bookList->SetReadingStatus(ReadingStatus(rs)); 
-	m_bookList->SetPurchaseStatus(PurchaseStatus(ps)); 
+	m_bookList[m_bookCount].SetBookInfo(title, author);
+	m_bookList[m_bookCount].SetReadingStatus(ReadingStatus(rs));
+	m_bookList[m_bookCount].SetPurchaseStatus(PurchaseStatus(ps));
 
-	m_bookCount++; 
+	m_bookCount++;
 }
 
 void Library::UpdateBook() {
 	cout << "------------------------- \n" << "| UPDATE BOOKS | \n" << "------------------------- \n";
-	DisplayBooksWithIndex(); 
+	DisplayBooksWithIndex();
 
-	int index, choice; 
-	cout << "Which index to update? \t"; 
-	cin >> index; 
-	cout << "What do you want to update? \n1. Title \n2. Author \n3. Reading Status \n4. Purchase status" << endl; 
-	cin >> choice; 
+	int index, choice;
+	cout << "Which index to update? \t";
+	cin >> index;
+	cout << "What do you want to update? \n1. Title \n2. Author \n3. Reading Status \n4. Purchase status" << endl;
+	cin >> choice;
 	while (choice < 1 || choice > 4) {
 		cout << "What do you want to update? \n1. Title \n2. Author \n3. Reading Status \n4. Purchase status" << endl;
 		cin >> choice;
@@ -148,15 +148,14 @@ void Library::UpdateBook() {
 	string title, author;
 	int rs, ps;
 
+	cin.ignore();
 	if (choice == 1) {
 		cout << "Enter book title: \t";
-		cin.ignore();
 		getline(cin, title);
 		m_bookList[index].SetBookInfo(title, currentAuthor);
 	}
 	else if (choice == 2) {
 		cout << "Enter book author: \t";
-		cin.ignore();
 		getline(cin, author);
 		m_bookList[index].SetBookInfo(currentTitle, author);
 	}
@@ -176,21 +175,21 @@ void Library::ViewAllBooks() {
 	cout << "------------------------- \n" << "| VIEW ALL BOOKS | \n" << "------------------------- \n";
 
 	for (int i = 0; i < m_bookCount; i++) {
-		m_bookList[i].DisplayBook(); 
+		m_bookList[i].DisplayBook();
 	}
 }
 
 void Library::ViewStats() {
-	int totalOwned = 0, totalWishlist = 0, totalFinished = 0, totalReading = 0, totalNotStarted = 0; 
+	int totalOwned = 0, totalWishlist = 0, totalFinished = 0, totalReading = 0, totalNotStarted = 0;
 
-	for (int i = 0; i < m_bookCount; i++) { 
+	for (int i = 0; i < m_bookCount; i++) {
 		if (m_bookList[i].GetPurchaseStatus() == OWNED) {
-			totalOwned++; 
+			totalOwned++;
 		}
 		else if (m_bookList[i].GetPurchaseStatus() == WISHLIST) {
-			totalWishlist++; 
+			totalWishlist++;
 		}
- 
+
 		if (m_bookList[i].GetReadingStatus() == READING) {
 			totalReading++;
 		}
