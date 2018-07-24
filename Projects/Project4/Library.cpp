@@ -222,10 +222,11 @@ void Library::SaveData() {
 	output.open("books.txt");
 
 	for (int i = 0; i < m_bookCount; i++) {
-		output << "BOOK" << i << "\t " << m_bookList[i].GetTitle() << endl;
-		output << "\t " << m_bookList[i].GetAuthor() << endl;
-		output << "\t " << m_bookList[i].GetPurchaseStatusString() << endl;
-		output << "\t " << m_bookList[i].GetReadingStatusString() << endl << endl;
+		output << "BOOK" << i << endl;
+		output << m_bookList[i].GetTitle() << endl;
+		output << m_bookList[i].GetAuthor() << endl;
+		output << m_bookList[i].GetPurchaseStatusString() << endl;
+		output << m_bookList[i].GetReadingStatusString() << endl;
 	}
 
 	output.close();
