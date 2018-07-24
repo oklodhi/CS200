@@ -18,6 +18,14 @@ class Library {
         int GetArraySize();
         int GetBookCount();
         bool isArrayFull();
+
+		void DisplayBooksWithIndex(); 
+		void Run(); 
+		void MainMenu(); 
+		void NewBook(); 
+		void UpdateBook(); 
+		void ViewAllBooks(); 
+		void ViewStats(); 
 };
 
 

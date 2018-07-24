@@ -39,8 +39,19 @@ void Phase2_Test1() {
     lib2.GetArraySize();
 }
 
+void Phase3_Test1() {
+	
+}
+
 int main() {
-    Phase1_Test1();
-    Phase2_Test1();
-    return 0;
+    //Phase1_Test1();
+    //Phase2_Test1();
+
+	Library library; 
+	library.Run(); 
+
+	cin.ignore(); 
+	cin.get(); 
+
+	return 0;
 }
