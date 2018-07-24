@@ -28,6 +28,7 @@ class Library {
 		void ViewStats();
 
 		void SaveData();
+		void SaveCSV();
 		void LoadData();
 };
 

@@ -82,10 +82,11 @@ void Library::MainMenu() {
 		cout << "3. View stats" << endl;
 		cout << "4. View all books" << endl;
 		cout << "5. Save and quit" << endl;
+		cout << "6. Save as CSV" << endl;
 		cout << "-------------------------- \n What do you want to do? \t";
 
 		cin >> inputChoice;
-		while (inputChoice < 1 || inputChoice > 5) {
+		while (inputChoice < 1 || inputChoice > 6) {
 			cout << "-------------------------- \n What do you want to do? \t";
 			cin >> inputChoice;
 		}
@@ -103,6 +104,9 @@ void Library::MainMenu() {
 		}
 		else if (inputChoice == 5) {
 			isQuit = true;
+		}
+		else if (inputChoice == 6) {
+			SaveCSV();
 		}
 	}
 
@@ -232,29 +236,43 @@ void Library::SaveData() {
 	output.close();
 }
 
+void Library::SaveCSV() {
+	ofstream outputCSV;
+	outputCSV.open("book.csv");
+	outputCSV << "Title, Author, Reading Status, Purchase Status" << endl;
+
+	for (int i = 0; i < m_bookCount; i++) {
+		outputCSV << m_bookList[i].GetTitle() << ", " << m_bookList[i].GetAuthor() << ", " << m_bookList[i].GetPurchaseStatusString() << ", " << m_bookList[i].GetReadingStatusString() << endl;
+	}
+}
+
 void Library::LoadData() {
-	string header, title, author;
+	string buffer, title, author;
 	int rs, ps;
 
 	ifstream input;
 	input.open("books.txt");
 
-	while (input >> header) {
-		input.ignore();
-		getline(input, title);
-		getline(input, author);
-		input >> rs;
-		input >> ps;
+	if (!input) {
+		cout << "Error. Cann't open file.";
+	} else {
+		while (input >> buffer) {
+			input.ignore();
+			getline(input, title);
+			getline(input, author);
+			input >> rs;
+			input >> ps;
 
-		if (isArrayFull() == true) {
-			ResizeArray();
+			if (isArrayFull() == true) {
+				ResizeArray();
+			}
+
+			m_bookList[m_bookCount].SetBookInfo(title, author);
+			m_bookList[m_bookCount].SetPurchaseStatus(PurchaseStatus(ps));
+			m_bookList[m_bookCount].SetReadingStatus(ReadingStatus(rs));
+
+			m_bookCount++;
 		}
-
-		m_bookList[m_bookCount].SetBookInfo(title, author);
-		m_bookList[m_bookCount].SetPurchaseStatus(PurchaseStatus(ps));
-		m_bookList[m_bookCount].SetReadingStatus(ReadingStatus(rs));
-
-		m_bookCount++;
 	}
 
 	input.close();

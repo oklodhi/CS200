@@ -19,9 +19,9 @@ void Book::SetPurchaseStatus( PurchaseStatus ps )
 
 void Book::DisplayBook()
 {
-    cout << "Title \t\t" << m_title << endl;
+    cout << "Title: \t\t" << m_title << endl;
     cout << "Author: \t" << m_author << endl;
-    cout << "Status: \t" << GetPurchaseStatusString() << ", \t" << GetReadingStatusString() << endl << endl;
+    cout << "Status: \t" << GetPurchaseStatusString() << ", " << GetReadingStatusString() << endl << endl;
 }
 
 string Book::GetTitle()
