@@ -42,24 +42,18 @@ void Phase2_Test1() {
 void Phase3_Test1() {
 	Library library;
 	library.Run();
+}
 
-	Library library2;
-	library2.Run();
-
-	Library library3;
-	library3.Run();
-
-	Library library4;
-	library4.Run();
+void Phase4_Test1() {
+    Library library;
+    library.Run();
 }
 
 int main() {
     //Phase1_Test1();
     //Phase2_Test1();
     //Phase3_Test1();
-
-	cin.ignore();
-	cin.get();
+    Phase4_Test1();
 
 	return 0;
 }

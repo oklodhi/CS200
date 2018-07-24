@@ -1,5 +1,9 @@
+#include <fstream>
+
 #include "Library.hpp"
 #include "Book.hpp"
+
+using namespace std;
 
 Library::Library() {
     m_bookList = nullptr;
@@ -63,6 +67,7 @@ void Library::DisplayBooksWithIndex() {
 }
 
 void Library::Run() {
+	LoadData();
 	MainMenu();
 }
 
@@ -100,6 +105,8 @@ void Library::MainMenu() {
 			isQuit = true;
 		}
 	}
+
+	SaveData();
 }
 
 void Library::NewBook() {
@@ -208,4 +215,46 @@ void Library::ViewStats() {
 	cout << "Books finished: \t" << totalFinished << endl;
 	cout << "Currently reading: \t" << totalReading << endl;
 	cout << "Books not started: \t" << totalNotStarted << endl;
+}
+
+void Library::SaveData() {
+	ofstream output;
+	output.open("books.txt");
+
+	for (int i = 0; i < m_bookCount; i++) {
+		output << "BOOK" << i << "\t " << m_bookList[i].GetTitle() << endl;
+		output << "\t " << m_bookList[i].GetAuthor() << endl;
+		output << "\t " << m_bookList[i].GetPurchaseStatusString() << endl;
+		output << "\t " << m_bookList[i].GetReadingStatusString() << endl << endl;
+	}
+
+	output.close();
+}
+
+void Library::LoadData() {
+	string header, title, author;
+	int rs, ps;
+
+	ifstream input;
+	input.open("books.txt");
+
+	while (input >> header) {
+		input.ignore();
+		getline(input, title);
+		getline(input, author);
+		input >> rs;
+		input >> ps;
+
+		if (isArrayFull() == true) {
+			ResizeArray();
+		}
+
+		m_bookList[m_bookCount].SetBookInfo(title, author);
+		m_bookList[m_bookCount].SetPurchaseStatus(PurchaseStatus(ps));
+		m_bookList[m_bookCount].SetReadingStatus(ReadingStatus(rs));
+
+		m_bookCount++;
+	}
+
+	input.close();
 }
