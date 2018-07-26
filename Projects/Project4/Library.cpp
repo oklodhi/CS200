@@ -83,10 +83,11 @@ void Library::MainMenu() {
 		cout << "4. View all books" << endl;
 		cout << "5. Save and quit" << endl;
 		cout << "6. Save as CSV" << endl;
+		cout << "7. Export Wishlist and Reading list" << endl;
 		cout << "-------------------------- \n What do you want to do? \t";
 
 		cin >> inputChoice;
-		while (inputChoice < 1 || inputChoice > 6) {
+		while (inputChoice < 1 || inputChoice > 7) {
 			cout << "-------------------------- \n What do you want to do? \t";
 			cin >> inputChoice;
 		}
@@ -107,6 +108,9 @@ void Library::MainMenu() {
 		}
 		else if (inputChoice == 6) {
 			SaveCSV();
+		}
+		else if (inputChoice == 7) {
+			SaveWishlistReadingList();
 		}
 	}
 
@@ -229,13 +233,14 @@ void Library::SaveData() {
 		output << "BOOK" << i << endl;
 		output << m_bookList[i].GetTitle() << endl;
 		output << m_bookList[i].GetAuthor() << endl;
-		output << m_bookList[i].GetPurchaseStatusString() << endl;
-		output << m_bookList[i].GetReadingStatusString() << endl;
+		output << m_bookList[i].GetPurchaseStatus() << endl;
+		output << m_bookList[i].GetReadingStatus() << endl;
 	}
 
 	output.close();
 }
 
+/* EXTRA CREDIT - CSV format */
 void Library::SaveCSV() {
 	ofstream outputCSV;
 	outputCSV.open("book.csv");
@@ -243,6 +248,30 @@ void Library::SaveCSV() {
 
 	for (int i = 0; i < m_bookCount; i++) {
 		outputCSV << m_bookList[i].GetTitle() << ", " << m_bookList[i].GetAuthor() << ", " << m_bookList[i].GetPurchaseStatusString() << ", " << m_bookList[i].GetReadingStatusString() << endl;
+	}
+}
+
+/* EXTRA CREDIT - Export Wishlist and Reading list*/
+void Library::SaveWishlistReadingList() {
+	ofstream output;
+	output.open("Wishlist_and_reading_list.csv");
+	output << "Wishlist" << endl;
+
+	//output << "Title, Author" << endl;
+	for (int i = 0; i < m_bookCount; i++) {
+
+		if (m_bookList[i].GetPurchaseStatus() == WISHLIST) {
+			output << m_bookList[i].GetTitle() << ", by " << m_bookList[i].GetAuthor() << endl;
+		}
+	}
+	output << endl << endl <<"Reading List" << endl;
+
+	//output << "Title, Author" << endl;
+	for (int i = 0; i < m_bookCount; i++) {
+
+		if (m_bookList[i].GetReadingStatus() == READING) {
+			output << m_bookList[i].GetTitle() << ", by " << m_bookList[i].GetAuthor() << endl;
+		}
 	}
 }
 

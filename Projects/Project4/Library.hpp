@@ -29,6 +29,7 @@ class Library {
 
 		void SaveData();
 		void SaveCSV();
+		void SaveWishlistReadingList();
 		void LoadData();
 };
 
